@@ -37,7 +37,7 @@ export default function Search() {
   
     
   return (
-<View style={styles.container}>     
+<ScrollView style={styles.container}>     
        
         <TextInput onChangeText ={text =>setText(text)}  placeholderTextColor="black" defaultValue={text}  placeholder="Search..." style = {styles.text}/>
         
@@ -70,7 +70,7 @@ export default function Search() {
         })}
 </>
     
-</View>
+</ScrollView>
 
   );
 }
