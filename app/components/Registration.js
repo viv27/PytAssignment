@@ -38,6 +38,7 @@ export default function App() {
         setGuests(guests - 1)
          }
     }
+   
 
     return (
 
@@ -84,10 +85,10 @@ const styles = StyleSheet.create({
     },
     header: {
         fontSize: 30,
-        color: 'black',
+        color: 'white',
         paddingBottom: 10,
         marginBottom: 10,
-        borderBottomColor: "black",
+        borderBottomColor: "white",
         borderBottomWidth: 1,
         textAlign: 'center',
         fontWeight: 'bold'
