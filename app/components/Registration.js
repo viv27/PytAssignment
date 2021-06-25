@@ -29,10 +29,14 @@ export default function App() {
         console.log(date)
     };
     function increase() {
+        if(guests < 2 && guests >=0){
         setGuests(guests + 1)
+        }
     }
     function decrease() {
+         if(guests <= 2 && guests >=1){
         setGuests(guests - 1)
+         }
     }
 
     return (
@@ -40,9 +44,9 @@ export default function App() {
         <View style={styles.registration}>
             <Text style={styles.header}>Registration</Text>
             <TextInput placeholderTextColor="black" placeholder="Your name" style={styles.textInput} />
-            <TextInput placeholderTextColor="black" placeholder="Your Age:" style={styles.textInput} />
+            <TextInput placeholderTextColor="black" placeholder="Your Age" style={styles.textInput} />
 
-            <Button color="'#dec5ed'," style={styles.birthdayButton} title={birthdayTitle} onPress={showDatePicker} />
+            <Button  style={styles.birthdayButton} title={birthdayTitle} onPress={showDatePicker} />
 
             {/* <Text style={styles.text} placeholderTextColor="red" placeholder="Birthday" style={styles.textInput} >{birthday}</Text> */}
 
@@ -74,15 +78,16 @@ export default function App() {
 const styles = StyleSheet.create({
     registration: {
         alignSelf: 'stretch',
+        
 
 
     },
     header: {
-        fontSize: 24,
+        fontSize: 30,
         color: 'black',
         paddingBottom: 10,
         marginBottom: 10,
-        borderBottomColor: "#199187",
+        borderBottomColor: "black",
         borderBottomWidth: 1,
         textAlign: 'center',
         fontWeight: 'bold'
@@ -95,26 +100,45 @@ const styles = StyleSheet.create({
         marginBottom: 30,
         fontSize: 18,
         color: 'black',
-        borderColor: '#59cbbd',
+        borderColor: 'white',
         borderWidth: 0,
         borderRadius: 5,
         padding: 10,
         marginTop: 5,
-        backgroundColor: '#dec5ed',
-        padding: 10
+        backgroundColor: 'white',
+        padding: 10,
+        shadowColor: "#000",
+        fontWeight:'bold',
+shadowOffset: {
+	width: 0,
+	height: 12,
+},
+shadowOpacity: 0.58,
+shadowRadius: 16.00,
+
+elevation: 24,
 
     },
     submit: {
         alignSelf: 'stretch',
         alignItems: 'center',
         padding: 20,
-        backgroundColor: '#dec5ed',
+        backgroundColor: 'white',
         marginTop: 0,
         borderRadius: 15,
+        shadowColor: "#000",
+shadowOffset: {
+	width: 0,
+	height: 12,
+},
+shadowOpacity: 0.58,
+shadowRadius: 16.00,
+
+elevation: 24,
 
     },
     btnText: {
-        color: '#543766',
+        color: 'black',
         fontWeight: 'bold',
         fontSize: 18,
     },
@@ -128,7 +152,7 @@ const styles = StyleSheet.create({
 
     },
     birthdayButton: {
-
+        color: 'black'
     },
     guest: {
         display: 'flex',
@@ -136,17 +160,21 @@ const styles = StyleSheet.create({
 
         padding: 10,
         fontSize: 18,
-        borderColor: '#59cbbd',
-        borderWidth: 2,
+        borderWidth:1,
+        borderColor: 'white',
+        borderRadius:5,
         justifyContent: 'center',
         alignItems: 'center',
         color: 'black',
-        marginBottom: 30
+        marginBottom: 30,
+        backgroundColor: 'white',
+        
 
     },
     guestText: {
         color: 'black',
         fontSize: 18,
+        fontWeight:'bold'
     },
     guestButton: {
         marginLeft: 10,
@@ -155,8 +183,10 @@ const styles = StyleSheet.create({
         padding: 7,
         borderRadius: 50,
         borderColor: 'black',
-        borderWidth: 1
+        borderWidth: 1,
+        
     },
+    
     date: {
         marginBottom: 30
     }
