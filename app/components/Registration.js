@@ -1,11 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 
 
 
-import { StyleSheet, Text, View, SafeAreaView, TextInput, TouchableOpacity, Button } from 'react-native';
+import { StyleSheet,BackHandler,Alert, Text, View, SafeAreaView, TextInput, TouchableOpacity, Button } from 'react-native';
 
 export default function App({navigation}) {
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
@@ -38,6 +38,27 @@ export default function App({navigation}) {
         setGuests(guests - 1)
          }
     }
+
+    useEffect(() => {
+    const backAction = () => {
+      Alert.alert("Hold on!", "Are you sure you want to go back?", [
+        {
+          text: "Cancel",
+          onPress: () => null,
+          style: "cancel"
+        },
+        { text: "YES", onPress: () => BackHandler.exitApp() }
+      ]);
+      return true;
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      backAction
+    );
+
+    return () => backHandler.remove();
+  }, []);
    
 
     return (
@@ -66,10 +87,10 @@ export default function App({navigation}) {
             <View style={styles.guest}><Text style={styles.guestText}>Number of guests:  {guests}</Text><Text style={styles.guestButton} onPress={increase}>➕</Text><Text onPress={decrease} style={styles.guestButton}>➖</Text></View>
 
 
-            <TextInput placeholderTextColor="black" placeholder="id" style={styles.textInput} />
-            <TextInput placeholderTextColor="black" placeholder="Your Address" style={styles.textInput} />
+            <TextInput placeholderTextColor="black" placeholder="Locality" style={styles.textInput} />
+            <TextInput   placeholderTextColor="black" placeholder="Your Address" style={styles.textInput} />
             <TouchableOpacity style={styles.submit}>
-                <Text style={styles.btnText}>SUBMIT</Text>
+                <Text multiline={true} style={styles.btnText}>SUBMIT</Text>
             </TouchableOpacity>
         </View>
 
@@ -93,8 +114,8 @@ const styles = StyleSheet.create({
         borderBottomColor: "white",
         borderBottomWidth: 1,
         textAlign: 'center',
-        fontWeight: 'bold'
-
+        fontWeight: 'bold',
+        marginTop: 40
 
     },
     textInput: {

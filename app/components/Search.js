@@ -13,64 +13,40 @@ export default function Search({navigation}) {
 .then(data => setList(data))
         
     }, [])
-    // function searchUser(text) {
-    //     const newList = list.filter(i=>
-    //         i.name.includes(text)
-    //        
-    //     setList(newList)    
-    // }
-
-
-    // function onChange(text) {
-
-    //     if(text !== ''){
-    //     const newList = list.filter(i=>
-    //         i.name.toLowerCase().includes(text))
-           
-    //     setList(newList)   
-    //     }
-        
-        
-    
-
-// }
+  
   
     
   return (
+    
 <ScrollView style={styles.container}>     
        
         <TextInput onChangeText ={text =>setText(text)}  placeholderTextColor="black" defaultValue={text}  placeholder="Search..." style = {styles.text}/>
         
       <>
         
-        {/* {list.map(person =>{
-            return <View style={styles.person} key={person._id}>
-                    <Text style={styles.personName}>👱{person.name}</Text>
-                    <Text style={styles.personLocality}>🏠{person.locality}</Text>
-            
-                    </View>
-        })} */}
+       
     
         {text === '' ? list.map(person =>{
 
             return  <View style={styles.person} key={person._id}>
-                    <Text style={styles.personName}>👱{person.name}</Text>
+                    <Text style={styles.personName}>{person.name}</Text>
                     <Text style={styles.personLocality}>🏠{person.locality}</Text>
                    
                     
             
                     </View>
-        }): list.filter(opt =>opt.name.includes(text)).map(person=>{
+        }): list.filter(opt =>opt.name.toLowerCase().includes(text.toLowerCase())).map(person=>{
             return  <View style={styles.person} key={person._id}>
                     <Text style={styles.personName}>👱{person.name}</Text>
-                    <Text style={styles.personLocality}>🏠{person.locality}</Text>
+                    <Text style={styles.personLocality}>{person.locality}🏠</Text>
         
         
                     </View>
         })}
-</>
+        </>
     
 </ScrollView>
+
 
   );
 }
@@ -79,9 +55,9 @@ const styles = StyleSheet.create({
   container: {
          flex:1,
         alignSelf: 'stretch',
-        backgroundColor: 'radial-gradient(circle, rgba(2,0,29,1) 0%, rgba(121,57,9,0.8804564061952906) 30%, rgba(0,212,255,1) 100%)',
-        paddingLeft: 30,
-    paddingRight: 30,
+        backgroundColor: 'lightgray',
+        paddingLeft: 10,
+    paddingRight: 10,
     
     
     
@@ -97,26 +73,40 @@ const styles = StyleSheet.create({
       borderRadius:25
   },
   person:{
-      color:'white',
+      color:'black',
       display: 'flex',
       flexDirection:'row',
       justifyContent:'space-between',
       borderWidth:2,
-      borderColor:'white',
+      
       marginBottom:5,
-      borderRadius:5,
-      padding:10
+      borderRadius:25,
+      padding:10,
+      backgroundColor: 'whitesmoke',
+      padding:20,
+      shadowColor: "#000",
+shadowOffset: {
+	width: 0,
+	height: 3,
+},
+shadowOpacity: 0.29,
+shadowRadius: 4.65,
+
+elevation: 7,
+      
+
+
 
 
   },
   personLocality:{
-      color:'white',
-      fontSize: 18,
+      color:'black',
+      fontSize: 19,
       
   },
   personName:{
-      color:'white',
-      fontSize: 18,
+      color:'black',
+      fontSize: 19,
   }
 
 });
