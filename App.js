@@ -6,6 +6,7 @@ import Search from './app/components/Search'
 import { NavigationContainer } from '@react-navigation/native';
 import {createDrawerNavigator} from "@react-navigation/drawer"
 import Report from './app/components/Report'
+import Test from './app/components/Report'
 const Drawer = createDrawerNavigator()
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
           </Drawer.Navigator>
 
         </NavigationContainer>
+        
         
 
       </View>
