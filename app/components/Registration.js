@@ -7,7 +7,7 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 import { StyleSheet, Text, View, SafeAreaView, TextInput, TouchableOpacity, Button } from 'react-native';
 
-export default function App() {
+export default function App({navigation}) {
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
     const [birthday, setBirthday] = useState("")
     const [birthdayTitle, setBirthdayTitle] = useState("Date of Birth")
@@ -22,7 +22,7 @@ export default function App() {
     };
 
     const handleConfirm = (date) => {
-        console.warn("A date has been picked: ", date);
+        
         hideDatePicker();
         setBirthday(date.toString().slice(3, 15));
         setBirthdayTitle(date.toString().slice(3, 15))
@@ -78,9 +78,11 @@ export default function App() {
 
 const styles = StyleSheet.create({
     registration: {
+        flex:1,
         alignSelf: 'stretch',
-        
-
+        backgroundColor: 'radial-gradient(circle, rgba(2,0,29,1) 0%, rgba(121,57,9,0.8804564061952906) 30%, rgba(0,212,255,1) 100%)',
+        paddingLeft: 30,
+    paddingRight: 30,
 
     },
     header: {
