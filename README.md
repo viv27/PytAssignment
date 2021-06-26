@@ -1,4 +1,5 @@
 # PytAssignment
+https://user-images.githubusercontent.com/15900850/123516982-78929480-d6bc-11eb-8a04-57c4d26dced3.mp4
 
 Use the barcode below to run the App locally on your Mobile Device through Expo Go App:
 
